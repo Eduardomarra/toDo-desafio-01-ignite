@@ -1,6 +1,7 @@
 import { Header } from './components/Header';
+import { NewTask } from './components/NewTask';
 
-import './App.module.css';
+import styles from './App.module.css';
 import './global.css';
 
 function App() {
@@ -8,6 +9,10 @@ function App() {
   return (
     <div>
         <Header />
+
+        <main className={styles.wrapper}>
+            <NewTask />
+        </main>
     </div>
   )
 }

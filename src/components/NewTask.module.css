@@ -1,0 +1,46 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin: -1.5rem 0 auto;
+    width: 100%;
+}
+.wrapper input {
+    width: 100%;
+    padding: 1rem;
+    color: var(--gray-300);
+    background: var(--gray-500);
+    border-radius: 8px;
+    border: 1px solid var(--gray-700);
+}
+.wrapper button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:0.5rem ;
+    color: var(--gray-100);
+    background: var(--blue-dark);
+    width: 6rem;
+    padding: 1rem;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.wrapper button svg {
+    color: var(--gray-100);
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        padding: 0.5rem;
+    }
+}
+@media (max-width: 414px) {
+    .wrapper {
+        flex-wrap: wrap;
+    }
+    .wrapper button {
+        width: 100%;
+    }
+}
