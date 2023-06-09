@@ -1,0 +1,36 @@
+.wrapper {
+    width: 100%;
+    margin: 4rem 0 auto;
+}
+.wrapper .info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    color: var(--blue);
+}
+.wrapper .info .counter {
+    margin-left: 0.5rem;
+    color: var(--gray-200);
+    background: var(--gray-400);
+    padding: 0.125rem 0.5rem;
+    border-radius: 999px;
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        padding: 0 0.5rem;
+    }
+}
+
+@media (max-width: 414px) {
+    .wrapper {
+        padding: 0 0.5rem;
+    }
+    .wrapper .info {
+        flex-wrap: wrap;
+    }
+    .wrapper .tasks p {
+        text-align: center;
+    }
+}

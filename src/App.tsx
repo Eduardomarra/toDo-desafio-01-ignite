@@ -3,6 +3,7 @@ import { NewTask } from './components/NewTask';
 
 import styles from './App.module.css';
 import './global.css';
+import { Tasks } from './components/Task';
 
 function App() {
   
@@ -12,6 +13,7 @@ function App() {
 
         <main className={styles.wrapper}>
             <NewTask />
+            <Tasks />
         </main>
     </div>
   )
