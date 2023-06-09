@@ -1,0 +1,40 @@
+.wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--gray-300);
+    margin-top: 1.5rem;
+    padding: 4rem 0;
+    border-top: 1px solid var(--gray-400);
+    border-radius: 8px;
+}
+.wrapper img {
+    margin-bottom: 1rem;
+}
+
+.wrapper .bold {
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+}
+
+
+@media (max-width: 768px) {
+    .wrapper {
+        padding: 0 0.5rem;
+    }
+}
+
+@media (max-width: 414px) {
+    .wrapper {
+        padding: 0 0.5rem;
+    }
+    .wrapper .info {
+        flex-wrap: wrap;
+    }
+    .wrapper .tasks p {
+        text-align: center;
+    }
+}
+
