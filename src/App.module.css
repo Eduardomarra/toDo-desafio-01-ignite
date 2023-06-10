@@ -26,4 +26,7 @@
     html {
         font-size: 87.5%;
     }
+    .counterTasks {
+        padding: 0.5rem;
+    }
 }

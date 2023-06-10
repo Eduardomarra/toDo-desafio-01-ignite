@@ -5,33 +5,60 @@ import styles from './App.module.css';
 import './global.css';
 import { Tasks } from './components/Tasks';
 import { TaskEmpty } from './components/TaskEmpty';
+import { useState } from 'react';
+
+export interface TaskProps {
+    id: number;
+    task: string;
+    isCompleted: boolean;
+}
 
 function App() {
-
-    const tasks = [
-        {
-            name: "eduardo"
-        }
-    ]
   
+    const [tasks, setTasks] = useState<TaskProps[]>([
+        {
+            id: 1,
+            task: "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
+            isCompleted: false
+        }
+    ])
+
+    const taskCompleted = tasks.filter( task => (task.isCompleted)).length
+
+    function onNewTask(task: string) {
+        setTasks([...tasks, {
+            id: tasks.length + 1,
+            task: task,
+            isCompleted: false
+        }])
+    }
+    
+    
   return (
     <div>
         <Header />
 
         <main className={styles.wrapper}>
-            <NewTask />
+            <NewTask 
+                onNewTask={onNewTask}
+            />
 
             <div className={styles.counterTasks}>
                 <div className={styles.info}>
-                    <span>Tarefas criadas <span className={styles.counter}>0</span></span>
-                    <span>Concluídas <span className={styles.counter}>0 de 0</span></span>
+                    <span>Tarefas criadas <span className={styles.counter}>{tasks.length}</span></span>
+                    <span>Concluídas <span className={styles.counter}>{taskCompleted} de {tasks.length}</span></span>
                 </div>
             </div>
-           <Tasks />
-           <Tasks />
-           <Tasks />
-           <Tasks />
-           <Tasks />
+            {tasks.map(task => {
+                return <Tasks
+                    key={task.id}
+                    task={task}
+                />
+            })}
+
+            {tasks.length <1 && <TaskEmpty />}
+
+          
         </main>
     </div>
   )
