@@ -21,6 +21,11 @@
     flex: 1;
 }
 
+.checked {
+    text-decoration: line-through;
+    color: var(--gray-300);
+}
+
 .wrapper .task svg{
     cursor: pointer;
 }
@@ -59,10 +64,6 @@
     background-color: var(--purple-dark);
     border-radius: 25px;
     transition: 0.15s;
-}
-
-.container input:checked > p {
-    color: red;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */

@@ -5,7 +5,7 @@ import styles from './App.module.css';
 import './global.css';
 import { Tasks } from './components/Tasks';
 import { TaskEmpty } from './components/TaskEmpty';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export interface TaskProps {
     id: number;
@@ -23,7 +23,8 @@ export function App() {
         }
     ])
 
-    const taskCompleted = tasks.filter( task => (task.isCompleted)).length
+      const taskCompleted = tasks.filter( task => (task.isCompleted)).length
+
 
     function handleCreateNewTask(task: string) {
         setTasks([...tasks, {
@@ -38,6 +39,19 @@ export function App() {
         setTasks(newArrayTasks);
     }
 
+    function taskIsCompleted(taskId: number){
+        const newArrayTasks = tasks.map( (task) => {
+            if(task.id === taskId) {
+                return {
+                    ...task,
+                    isCompleted: !task.isCompleted
+                };
+            }
+            return task;
+        });
+        setTasks(newArrayTasks)
+    }
+    
   return (
     <div>
         <Header />
@@ -59,6 +73,7 @@ export function App() {
                         key={task.id}
                         task={task}
                         onDelete={deleteTask}
+                        isCompleted={taskIsCompleted}
                     />
                 )
             })}
