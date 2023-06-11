@@ -6,7 +6,7 @@
     height="auto"
     alt="Homepage do projeto"
     title="Home do blog"
-    src="./assets/toDo.jpg"
+    src="./src/assets/ToDo.JPG"
   />
 </div>
 
@@ -16,7 +16,7 @@
 
 <a href="#" target="_blank">Versão online</a>
 
-É um desafio da Rocketseat - Ignite ReactJs .
+Desafio Rocketseat - Ignite ReactJs .
 
 ## 🚀 Tecnologias
 
