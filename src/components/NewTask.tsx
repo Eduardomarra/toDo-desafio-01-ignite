@@ -4,11 +4,11 @@ import styles from './NewTask.module.css';
 import { ChangeEvent, FormEvent, useState } from 'react';
 
 interface Props {
-    onNewTask: (task: string) => void;
+    createNewTask: (task: string) => void;
 }
 
 
-export function NewTask({onNewTask}: Props) {
+export function NewTask({createNewTask}: Props) {
     const [task, setTask] = useState('')
 
     function onChangeTask(event: ChangeEvent<HTMLInputElement>){
@@ -16,8 +16,8 @@ export function NewTask({onNewTask}: Props) {
     }
 
     function handleSubmit(event: FormEvent){
-        event.preventDefault()
-        onNewTask(task)
+        event.preventDefault();
+        createNewTask(task);
     }
 
     return (

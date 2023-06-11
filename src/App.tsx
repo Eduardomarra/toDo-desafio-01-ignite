@@ -13,7 +13,7 @@ export interface TaskProps {
     isCompleted: boolean;
 }
 
-function App() {
+export function App() {
   
     const [tasks, setTasks] = useState<TaskProps[]>([
         {
@@ -25,22 +25,26 @@ function App() {
 
     const taskCompleted = tasks.filter( task => (task.isCompleted)).length
 
-    function onNewTask(task: string) {
+    function handleCreateNewTask(task: string) {
         setTasks([...tasks, {
             id: tasks.length + 1,
             task: task,
             isCompleted: false
         }])
     }
-    
-    
+
+    function deleteTask(taskId: number){
+        const newArrayTasks = tasks.filter( task => task.id !== taskId);
+        setTasks(newArrayTasks);
+    }
+
   return (
     <div>
         <Header />
 
         <main className={styles.wrapper}>
             <NewTask 
-                onNewTask={onNewTask}
+                createNewTask={handleCreateNewTask}
             />
 
             <div className={styles.counterTasks}>
@@ -50,10 +54,13 @@ function App() {
                 </div>
             </div>
             {tasks.map(task => {
-                return <Tasks
-                    key={task.id}
-                    task={task}
-                />
+                return (
+                    <Tasks
+                        key={task.id}
+                        task={task}
+                        onDelete={deleteTask}
+                    />
+                )
             })}
 
             {tasks.length <1 && <TaskEmpty />}
@@ -63,5 +70,3 @@ function App() {
     </div>
   )
 }
-
-export default App

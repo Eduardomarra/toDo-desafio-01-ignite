@@ -21,6 +21,10 @@
     flex: 1;
 }
 
+.wrapper .task svg{
+    cursor: pointer;
+}
+
 /* Hide the default checkbox */
 .container input {
     position: absolute;
